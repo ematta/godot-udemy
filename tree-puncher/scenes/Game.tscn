@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://sprites/skybox_sideHills.png" type="Texture" id=1]
 [ext_resource path="res://sprites/dirt_grass.png" type="Texture" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://scripts/Game.gd" type="Script" id=4]
 [ext_resource path="res://scenes/Trunk.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/Grave.png" type="Texture" id=6]
+[ext_resource path="res://PressStart2P-Regular.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
 
 [node name="Game" type="Node"]
 script = ExtResource( 4 )
@@ -62,5 +66,16 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 576.0
+margin_top = 1157.64
+margin_right = 716.0
+margin_bottom = 1189.64
+custom_fonts/normal_font = SubResource( 1 )
+text = "SCORE:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

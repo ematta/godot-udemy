@@ -5,6 +5,7 @@ var center
 var offset
 var game
 var right = true
+var score = 0
 
 func _ready():
 	game = get_parent()
