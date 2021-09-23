@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/PlayerProjectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Formation.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Spawner.gd" type="Script" id=5]
+[ext_resource path="res://scenes/Main.gd" type="Script" id=7]
+
+[node name="Node" type="Node"]
+script = ExtResource( 7 )
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 512 )
+projectile = ExtResource( 3 )
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource( 5 )
+formation = ExtResource( 4 )
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = 5.29959
+margin_top = 575.669
+margin_right = 133.3
+margin_bottom = 589.669
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="was_hit" from="Player" to="." method="_on_Player_was_hit"]
